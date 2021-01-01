@@ -1,0 +1,11 @@
+---
+  - name: "Installing apache & ubuntu on hosts"
+    hosts: all
+    become: true
+    tasks:
+    
+      - name: "Installing httpd Service on RedHat"
+        when: ansible_os_family == "RedHat"
+        yum:
+          name: httpd
+          state: present
